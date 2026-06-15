@@ -45,7 +45,7 @@ export default function EmotionalSection() {
           display:       "flex",
           flexDirection: "column",
           gap:           14,
-          zIndex:        1,
+          zIndex:        2,
         }}
         initial={{ opacity: 0, y: 14 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -114,13 +114,23 @@ export default function EmotionalSection() {
           top:      "36.1%",
           bottom:   0,
           overflow: "hidden",
-          zIndex:   2,
+          zIndex:   1,
         }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1.1, delay: 0.15 }}
         viewport={{ once: true }}
       >
+        {/* Gradient fades black into the image top — smooth transition on all sizes */}
+        <div
+          style={{
+            position:      "absolute",
+            inset:         0,
+            background:    "linear-gradient(to bottom, black 0%, rgba(0,0,0,0) 38%)",
+            zIndex:        1,
+            pointerEvents: "none",
+          }}
+        />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/vision-hero.png"

@@ -103,12 +103,8 @@ export default function InvestSection() {
 
         {/* Headline + description — gap=19px */}
         <div
-          style={{
-            display:        "flex",
-            flexDirection:  "column",
-            alignItems:     "center",
-            gap:            19,
-          }}
+          className="flex flex-col items-start md:items-center"
+          style={{ gap: 19 }}
         >
           {/* Headline — Manrope 400, 62px, -3.1px, lh 77px */}
           <motion.p
@@ -208,7 +204,6 @@ export default function InvestSection() {
                   color:         stat.labelColor,
                   letterSpacing: "1px",
                   margin:        0,
-                  whiteSpace:    "nowrap",
                 }}
               >
                 {stat.label}

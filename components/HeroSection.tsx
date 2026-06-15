@@ -59,7 +59,7 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-center flex-1 pl-[30px] md:pl-[79px] pr-[30px] md:pr-8 pt-28 pb-16">
+      <div className="relative z-10 flex flex-col justify-end md:justify-center flex-1 pl-[30px] md:pl-[79px] pr-[30px] md:pr-8 pt-28 pb-16">
 
         {/* Mobile headline */}
         <h1
@@ -69,7 +69,6 @@ export default function HeroSection() {
             fontSize: "38px",
             letterSpacing: "-1.9px",
             lineHeight: "1.05",
-            maxWidth: 257,
           }}
         >
           Own India&apos;s first{" "}

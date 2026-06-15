@@ -76,7 +76,7 @@ export default function VisionSection() {
           style={{
             maxWidth: 1302,
             padding:  "0 clamp(24px, 6.9vw, 105px)",
-            gap:      80,
+            gap:      "clamp(40px, 5.3vw, 80px)",
           }}
         >
 

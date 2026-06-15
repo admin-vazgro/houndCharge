@@ -92,8 +92,8 @@ export default function HowItWorksSection() {
         {/* ── Left column: text + video ──────────────────────────────────
             704px wide = 57% of 1234px content area                      */}
         <div
-          className="flex flex-col"
-          style={{ flex: "0 0 57%", paddingRight: "clamp(16px, 2.6vw, 40px)" }}
+          className="hiw-left-col flex flex-col"
+          style={{ flex: "0 0 57%" }}
         >
           {/* Text block — gap 8px between all three elements */}
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -199,8 +199,7 @@ export default function HowItWorksSection() {
             Steps start at top=362px from section top.
             From content top: 362 − 87 = 275px → paddingTop clamp        */}
         <div
-          className="flex-1 mt-12 md:mt-0"
-          style={{ paddingTop: "clamp(0px, 18.25vw, 275px)" }}
+          className="steps-col-pad flex-1 mt-12 md:mt-0"
         >
           {steps.map((step, i) => {
             const isLast = step.lineH === 0;

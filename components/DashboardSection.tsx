@@ -46,8 +46,9 @@ export default function DashboardSection() {
       >
 
         {/* ── Left: dashboard screenshot — Figma 606×606px ─────────── */}
+        {/* order-last on mobile so text reads first; lg:order-first restores desktop position */}
         <motion.div
-          className="relative shrink-0 overflow-hidden"
+          className="relative shrink-0 overflow-hidden order-last lg:order-first"
           style={{
             width:  "clamp(280px, 40.1vw, 606px)",
             height: "clamp(280px, 40.1vw, 606px)",
