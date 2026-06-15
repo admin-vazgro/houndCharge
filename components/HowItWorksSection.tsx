@@ -184,7 +184,7 @@ export default function HowItWorksSection() {
               playsInline
               className="absolute inset-0 w-full h-full object-contain object-center"
             >
-              <source src="/Infra.mp4" type="video/mp4" />
+              <source src="/infra.mp4" type="video/mp4" />
             </video>
             <div
               className="absolute inset-0 pointer-events-none"
