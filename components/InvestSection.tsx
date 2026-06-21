@@ -11,10 +11,12 @@ const GOLD = "#c9ad7d";
 // All text center-aligned
 
 const stats = [
-  { value: 13,  suffix: "",   label: "STRATEGIC LOCATIONS", labelColor: "#c3c3c3" },
-  { value: 65,  suffix: "",   label: "FAST CHARGERS",       labelColor: "#e0e0e0" },
-  { value: 5,   suffix: "",   label: "CHARGERS PER HUB",    labelColor: "#e0e0e0" },
-  { value: 120, suffix: "kW", label: "MIN CAPACITY",        labelColor: "#e0e0e0" },
+  { value: 10,  suffix: "",   label: "STRATEGIC LOCATIONS", labelColor: "#c3c3c3" },
+  { value: 75,  suffix: "",   label: "FAST CHARGERS",       labelColor: "#e0e0e0" },
+  { value: 180, suffix: "KW", label: "MIN CAPACITY",        labelColor: "#e0e0e0" },
+  { value: 750, suffix: "KW", label: "IN A SINGLE HUB",     labelColor: "#e0e0e0" },
+  { value: 2,   suffix: "",   label: "MEGA HUBS",           labelColor: "#e0e0e0" },
+  { value: 8,   suffix: "",   label: "MINI HUBS",           labelColor: "#e0e0e0" },
 ];
 
 function AnimatedCounter({ value, suffix, inView, delay }: {
@@ -164,7 +166,7 @@ export default function InvestSection() {
         {/* Stats row — gap=102px, items-end */}
         <div
           ref={statsRef}
-          className="grid grid-cols-2 md:grid-cols-4"
+          className="grid grid-cols-2 md:grid-cols-3"
           style={{ gap: "clamp(28px, 6.75vw, 102px)" }}
         >
           {stats.map((stat, i) => (

@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 const GOLD = "#c9ad7d";
 
 const rows = [
-  { label: "OWNERSHIP",          franchise: "Operator only",       company: "Company only",          hound: "You — fractional" },
-  { label: "ENTRY COST",         franchise: "₹1–5 Cr minimum",    company: "Not open to investors", hound: "₹5L minimum" },
-  { label: "EXIT PATH",          franchise: "None structured",     company: "None",                  hound: "Marketplace liquidity" },
-  { label: "TRANSPARENCY",       franchise: "Minimal",             company: "None",                  hound: "Real-time dashboard" },
-  { label: "DIVERSIFICATION",    franchise: "Single location",     company: "N/A",                   hound: "Multi-hub, multi-project" },
-  { label: "OPERATIONAL BURDEN", franchise: "High — you run it",  company: "None — no access",      hound: "Zero — we operate" },
+  { label: "OWNERSHIP",       franchise: "Operator only",            company: "Company only",       hound: "You — fractional" },
+  { label: "ENTRY COST",      franchise: "20 lakhs",                 company: "35 lakhs",           hound: "₹5L minimum" },
+  { label: "EXIT PATH",       franchise: "None structured",          company: "None",               hound: "Marketplace liquidity" },
+  { label: "TRANSPARENCY",    franchise: "Minimal dashboard",        company: "Minimal dashboard",  hound: "Dedicated investor mobile application" },
+  { label: "DIVERSIFICATION", franchise: "Single location",          company: "Single location",    hound: "Multi hub, multi project" },
+  { label: "UTILISATION",     franchise: "Depends upon your location", company: "Single location", hound: "Data backed location" },
 ];
 
 export default function WhySection() {

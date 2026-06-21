@@ -9,7 +9,7 @@ const phases = [
     phase: "PHASE 1",
     period: "2025 – 2026",
     title: "Project ARES",
-    desc: "Live charging ring around Ernakulam's border-entry corridors. 13 hubs, 65 chargers, capturing inbound EV traffic at district entry points.",
+    desc: "Live charging ring around Ernakulam's border-entry corridors. 10 strategic locations, 75 fast chargers across 2 mega hubs and 8 mini hubs — capturing inbound EV traffic at district entry points.",
     live: true,
   },
   {
