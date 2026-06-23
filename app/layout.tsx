@@ -25,8 +25,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Chativ — Technology Crafted for All",
-  description: "We create clear, intuitive, and accessible digital experiences shaped by real human behavior.",
+  title: "Hound Charge",
+  description: "Invest in India's EV charging infrastructure. Fractional ownership, real returns.",
 };
 
 export default function RootLayout({
