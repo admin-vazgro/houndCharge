@@ -66,12 +66,13 @@ export default function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <button
+          <a
+            href="/#invest"
             className="hidden md:block bg-white text-black text-xs font-semibold tracking-[0.15em] px-6 py-2.5 rounded-full hover:bg-zinc-100 transition-colors duration-200"
             style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
           >
             INVEST
-          </button>
+          </a>
 
           {/* Mobile hamburger */}
           <button
@@ -134,7 +135,8 @@ export default function Navbar() {
               </motion.a>
             ))}
 
-            <motion.button
+            <motion.a
+              href="/#invest"
               className="mt-4 bg-white text-black text-xs font-semibold tracking-[0.15em] px-8 py-3 rounded-full"
               style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
               initial={{ opacity: 0, y: 10 }}
@@ -143,7 +145,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               INVEST
-            </motion.button>
+            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>

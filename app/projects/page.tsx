@@ -124,7 +124,7 @@ export default function ProjectsPage() {
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, delay: 0.05, ease: EASE }}
         >
-          30 Projects.{" "}
+          100+ Projects.{" "}
           <span style={{ color: GOLD, fontFamily: "var(--font-playfair), serif", fontStyle: "italic", fontWeight: 400 }}>
             One Mission.
           </span>
