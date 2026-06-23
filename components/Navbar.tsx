@@ -22,7 +22,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -33,8 +32,8 @@ export default function Navbar() {
       <header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
-          background:          scrolled || menuOpen ? "rgba(0,0,0,0.92)" : "transparent",
-          backdropFilter:      scrolled || menuOpen ? "blur(12px)" : "none",
+          background:           scrolled || menuOpen ? "rgba(0,0,0,0.92)" : "transparent",
+          backdropFilter:       scrolled || menuOpen ? "blur(12px)" : "none",
           WebkitBackdropFilter: scrolled || menuOpen ? "blur(12px)" : "none",
         }}
       >
@@ -80,9 +79,7 @@ export default function Navbar() {
           >
             <span
               className="block w-6 h-px bg-white transition-all duration-300 origin-center"
-              style={{
-                transform: menuOpen ? "translateY(6px) rotate(45deg)" : "none",
-              }}
+              style={{ transform: menuOpen ? "translateY(6px) rotate(45deg)" : "none" }}
             />
             <span
               className="block w-6 h-px bg-white transition-all duration-300"
@@ -90,9 +87,7 @@ export default function Navbar() {
             />
             <span
               className="block w-6 h-px bg-white transition-all duration-300 origin-center"
-              style={{
-                transform: menuOpen ? "translateY(-6px) rotate(-45deg)" : "none",
-              }}
+              style={{ transform: menuOpen ? "translateY(-6px) rotate(-45deg)" : "none" }}
             />
           </button>
         </nav>

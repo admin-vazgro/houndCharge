@@ -65,3 +65,23 @@ h1, h2, h3 {
     padding-right: clamp(16px, 2.6vw, 40px);
   }
 }
+
+/* Project marquee scrolling animations */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-track {
+  animation: marquee-left 40s linear infinite;
+}
+.marquee-track-reverse {
+  animation: marquee-right 36s linear infinite;
+}
+.marquee-wrap:hover .marquee-track,
+.marquee-wrap:hover .marquee-track-reverse {
+  animation-play-state: paused;
+}

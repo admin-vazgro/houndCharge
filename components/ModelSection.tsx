@@ -3,10 +3,7 @@
 import { motion } from "framer-motion";
 
 const GOLD = "#c9ad7d";
-
-// Figma section: 1512×933px
-// Text block: left=139, top=87, w=847
-// Cards: left=[139,557,975], top=502, w=398, h=344, gap=20
+const EASE = [0.32, 0.72, 0, 1] as const;
 
 const problems = [
   {
@@ -32,26 +29,22 @@ export default function ModelSection() {
       id="model"
       className="bg-black overflow-hidden"
       style={{
-        // Figma: 87px top/bottom, 139px left/right
         paddingTop:    "clamp(64px, 9.25vw, 140px)",
         paddingBottom: "clamp(64px, 9.25vw, 140px)",
         paddingLeft:   "clamp(24px, 9.2vw, 139px)",
         paddingRight:  "clamp(24px, 9.2vw, 139px)",
       }}
     >
-      {/* ── Label + Headline + Description ──────────────────────────── */}
-      {/* Figma: w=847px, gap=19px, top=87px                            */}
+      {/* ── Header ───────────────────────────────────────────────────── */}
       <div
         style={{
           display:       "flex",
           flexDirection: "column",
           gap:           19,
           maxWidth:      987,
-          // Gap from text bottom to cards: 402 - 87 - ~247px text = ~68px
           marginBottom:  "clamp(32px, 4.5vw, 68px)",
         }}
       >
-        {/* THE PROBLEM — 18px Space Grotesk, gold, tracking 1px, lh 32px */}
         <motion.p
           style={{
             fontFamily:    "var(--font-space-grotesk), sans-serif",
@@ -64,12 +57,12 @@ export default function ModelSection() {
           }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: EASE }}
           viewport={{ once: true }}
         >
           THE PROBLEM
         </motion.p>
 
-        {/* Headline — 62px Manrope Light, white + gold split, tracking -1.24px, lh 71px */}
         <motion.p
           className="heading-ls"
           style={{
@@ -80,30 +73,29 @@ export default function ModelSection() {
             lineHeight:    "1.2",
             margin:        0,
           }}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.9, ease: EASE }}
           viewport={{ once: true }}
         >
           <span style={{ color: "white" }}>Charging Infrastructure Exists. </span>
           <span style={{ color: "#dbb781" }}>Flexible and Proper.</span>
         </motion.p>
 
-        {/* Description — 16px Manrope, #fdffea, lh 26px, tracking 1px, w=774px */}
         <motion.p
           style={{
             fontFamily:    "var(--font-manrope), sans-serif",
             fontSize:      16,
             fontWeight:    400,
-            color:         "#fdffea",
-            letterSpacing: "1px",
+            color:         "rgba(253,255,234,0.65)",
+            letterSpacing: "0.5px",
             lineHeight:    "26px",
             maxWidth:      774,
             margin:        0,
           }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.18, ease: EASE }}
           viewport={{ once: true }}
         >
           The EV charging boom is real. But the infrastructure for investors to
@@ -112,26 +104,20 @@ export default function ModelSection() {
       </div>
 
       {/* ── Problem cards ──────────────────────────────────────────── */}
-      {/* Figma: w=398, h=344, gap=20, left=[139,557,975]              */}
-      <div
-        className="grid grid-cols-1 md:grid-cols-3"
-        style={{ gap: 20 }}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: 16 }}>
         {problems.map((p, i) => (
           <motion.div
             key={p.number}
             className="relative overflow-hidden"
-            style={{
-              borderRadius: 17,
-              minHeight:    344,
-            }}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: i * 0.12 }}
+            style={{ borderRadius: 20, minHeight: 344 }}
+            initial={{ opacity: 0, y: 36, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, delay: i * 0.1, ease: EASE }}
             viewport={{ once: true }}
           >
             {/* Rotating conic-gradient border glow */}
             <div
+              aria-hidden
               style={{
                 position:       "absolute",
                 inset:          -120,
@@ -147,57 +133,56 @@ export default function ModelSection() {
                 animationDelay: `${i * -1.5}s`,
               }}
             />
-
-            {/* Static dim border visible when glow has swept past */}
             <div
+              aria-hidden
               style={{
                 position:      "absolute",
                 inset:         0,
-                borderRadius:  17,
-                border:        "1px solid rgba(201,173,125,0.15)",
+                borderRadius:  20,
+                border:        "1px solid rgba(201,173,125,0.12)",
                 pointerEvents: "none",
               }}
             />
-
-            {/* Inner background — 1px inset reveals glow at edge */}
+            {/* Inner core */}
             <div
               style={{
                 position:     "absolute",
-                inset:        1,
-                borderRadius: 16,
+                inset:        1.5,
+                borderRadius: 19,
                 background:   "#070707",
+                boxShadow:    "inset 0 1px 1px rgba(255,255,255,0.04)",
               }}
             />
 
-            {/* Card content */}
+            {/* Content */}
             <div
               style={{
                 position: "relative",
                 zIndex:   1,
-                padding:  "43px 40px",
+                padding:  "clamp(32px, 3.5vw, 44px) clamp(28px, 3vw, 40px)",
                 height:   "100%",
               }}
             >
-              {/* Red corner dot — Figma: left=360 in 398px card → right=25 */}
+              {/* Red corner indicator */}
               <div
                 className="absolute rounded-full"
                 style={{
-                  width:      13,
-                  height:     13,
-                  top:        43,
-                  right:      25,
-                  background: "rgba(255,55,55,0.85)",
+                  width:      11,
+                  height:     11,
+                  top:        "clamp(28px, 3.5vw, 44px)",
+                  right:      "clamp(24px, 2.5vw, 32px)",
+                  background: "rgba(255,60,60,0.7)",
                 }}
               />
 
-              {/* Number + gold separator line — Figma: w=86px, gap=17px */}
+              {/* Number + gold rule */}
               <div
                 style={{
                   display:       "flex",
                   flexDirection: "column",
                   gap:           17,
                   width:         86,
-                  marginBottom:  35,
+                  marginBottom:  32,
                 }}
               >
                 <p
@@ -213,38 +198,30 @@ export default function ModelSection() {
                 >
                   {p.number}
                 </p>
-                <div
-                  style={{
-                    height:     1,
-                    background: "rgba(201,173,125,0.5)",
-                    width:      "100%",
-                  }}
-                />
+                <div style={{ height: 1, background: "rgba(201,173,125,0.4)", width: "100%" }} />
               </div>
 
-              {/* Title + description — Figma: gap=28px */}
-              <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
-                {/* 28px Manrope Light, white, lh 32px */}
+              {/* Title + desc */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
                 <p
                   style={{
                     fontFamily: "var(--font-manrope), sans-serif",
-                    fontSize:   28,
+                    fontSize:   "clamp(1.3rem, 1.9vw, 28px)",
                     fontWeight: 300,
                     color:      "white",
-                    lineHeight: "32px",
+                    lineHeight: "1.2",
                     margin:     0,
                   }}
                 >
                   {p.title}
                 </p>
-                {/* 14px Manrope, #fdffea, tracking 1px, lh 24px */}
                 <p
                   style={{
                     fontFamily:    "var(--font-manrope), sans-serif",
                     fontSize:      14,
                     fontWeight:    400,
-                    color:         "#fdffea",
-                    letterSpacing: "1px",
+                    color:         "rgba(253,255,234,0.65)",
+                    letterSpacing: "0.5px",
                     lineHeight:    "24px",
                     margin:        0,
                   }}

@@ -4,11 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const GOLD = "#c9ad7d";
-
-// Figma frame: 1512×654px
-// Layout: centered flex-col, gap=32px, items-center
-// Label → headline+desc block (gap=19px) → stats row (gap=102px)
-// All text center-aligned
+const EASE = [0.32, 0.72, 0, 1] as const;
 
 const stats = [
   { value: 10,  suffix: "",   label: "STRATEGIC LOCATIONS", labelColor: "#c3c3c3" },
@@ -62,29 +58,22 @@ export default function InvestSection() {
         paddingRight:  "clamp(24px, 9.2vw, 139px)",
       }}
     >
-      {/* Subtle radial glow — centred behind the whole section */}
+      {/* Ambient gold glow */}
       <div
         aria-hidden
         style={{
-          position:   "absolute",
-          inset:      0,
-          background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,173,125,0.06) 0%, transparent 70%)",
+          position:      "absolute",
+          inset:         0,
+          background:    "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,173,125,0.055) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
 
-      {/* Main content — flex-col gap=32px centered */}
       <div
         className="items-start md:items-center"
-        style={{
-          position:      "relative",
-          display:       "flex",
-          flexDirection: "column",
-          gap:           32,
-        }}
+        style={{ position: "relative", display: "flex", flexDirection: "column", gap: 32 }}
       >
-
-        {/* Label — Space Grotesk 400, 18px, gold, tracking 1px, lh 32px */}
+        {/* Label */}
         <motion.p
           style={{
             fontFamily:    "var(--font-space-grotesk), sans-serif",
@@ -95,20 +84,16 @@ export default function InvestSection() {
             lineHeight:    "32px",
             margin:        0,
           }}
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: EASE }}
           viewport={{ once: true }}
         >
           PROJECT ARES
         </motion.p>
 
-        {/* Headline + description — gap=19px */}
-        <div
-          className="flex flex-col items-start md:items-center"
-          style={{ gap: 19 }}
-        >
-          {/* Headline — Manrope 400, 62px, -3.1px, lh 77px */}
+        {/* Headline + description */}
+        <div className="flex flex-col items-start md:items-center" style={{ gap: 19 }}>
           <motion.p
             className="text-left md:text-center heading-ls"
             style={{
@@ -119,31 +104,30 @@ export default function InvestSection() {
               lineHeight:    "1.24",
               margin:        0,
             }}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.05 }}
+            initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.9, delay: 0.05, ease: EASE }}
             viewport={{ once: true }}
           >
             <span style={{ color: "white" }}>Introducing Project </span>
             <span style={{ color: GOLD }}>Ares</span>
           </motion.p>
 
-          {/* Description — Manrope 400, 16px, #fdffea, lh 26px, w=746px */}
           <motion.p
             className="text-left md:text-center"
             style={{
               fontFamily:    "var(--font-manrope), sans-serif",
               fontSize:      16,
               fontWeight:    400,
-              color:         "#fdffea",
-              letterSpacing: "1px",
+              color:         "rgba(253,255,234,0.65)",
+              letterSpacing: "0.5px",
               lineHeight:    "26px",
               maxWidth:      746,
               margin:        0,
             }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
             viewport={{ once: true }}
           >
             A strategic high-speed EV charging ring around Ernakulam&apos;s major entry corridors — capturing inbound EV traffic before it enters the city.
@@ -155,15 +139,15 @@ export default function InvestSection() {
           style={{
             width:      "clamp(200px, 20vw, 320px)",
             height:     1,
-            background: "linear-gradient(to right, transparent, rgba(201,173,125,0.5), transparent)",
+            background: "linear-gradient(to right, transparent, rgba(201,173,125,0.45), transparent)",
           }}
           initial={{ opacity: 0, scaleX: 0 }}
           whileInView={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: EASE }}
           viewport={{ once: true }}
         />
 
-        {/* Stats row — gap=102px, items-end */}
+        {/* Stats grid */}
         <div
           ref={statsRef}
           className="grid grid-cols-2 md:grid-cols-3"
@@ -173,20 +157,19 @@ export default function InvestSection() {
             <motion.div
               key={stat.label}
               style={{ display: "flex", flexDirection: "column", gap: 22 }}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.1 + i * 0.1 }}
+              initial={{ opacity: 0, y: 28, filter: "blur(6px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.7, delay: 0.1 + i * 0.08, ease: EASE }}
               viewport={{ once: true }}
             >
-              {/* Value — Space Grotesk 400, 62px, gold, h=66px */}
               <p
                 style={{
-                  fontFamily:  "var(--font-space-grotesk), sans-serif",
-                  fontSize:    "clamp(2.5rem, 4.1vw, 62px)",
-                  fontWeight:  400,
-                  color:       GOLD,
-                  lineHeight:  "66px",
-                  margin:      0,
+                  fontFamily:         "var(--font-space-grotesk), sans-serif",
+                  fontSize:           "clamp(2.5rem, 4.1vw, 62px)",
+                  fontWeight:         400,
+                  color:              GOLD,
+                  lineHeight:         "66px",
+                  margin:             0,
                   fontVariantNumeric: "tabular-nums",
                 }}
               >
@@ -197,7 +180,6 @@ export default function InvestSection() {
                   delay={i * 120}
                 />
               </p>
-              {/* Label — Space Grotesk Light 300, 16px, tracking 1px */}
               <p
                 style={{
                   fontFamily:    "var(--font-space-grotesk), sans-serif",
@@ -213,7 +195,6 @@ export default function InvestSection() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

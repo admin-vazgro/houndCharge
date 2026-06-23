@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 const GOLD = "#c9ad7d";
+const EASE = [0.32, 0.72, 0, 1] as const;
 
 export default function AboutSection() {
   return (
@@ -29,6 +30,7 @@ export default function AboutSection() {
           }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: EASE }}
           viewport={{ once: true }}
         >
           ABOUT HOUND CHARGE
@@ -38,9 +40,9 @@ export default function AboutSection() {
           {/* Left: opening statement */}
           <motion.div
             className="lg:flex-1"
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
+            initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.95, ease: EASE }}
             viewport={{ once: true }}
           >
             <h2
@@ -91,7 +93,7 @@ export default function AboutSection() {
             style={{ gap: 20, maxWidth: 560 }}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: EASE }}
             viewport={{ once: true }}
           >
             <p
@@ -160,7 +162,7 @@ export default function AboutSection() {
         }}
         initial={{ scaleX: 0, transformOrigin: "left" }}
         whileInView={{ scaleX: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 1.0, ease: EASE }}
         viewport={{ once: true }}
       />
 
@@ -185,6 +187,7 @@ export default function AboutSection() {
           }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: EASE }}
           viewport={{ once: true }}
         >
           ABOUT HOUND MOBILITY
@@ -195,9 +198,9 @@ export default function AboutSection() {
           {/* Left: headline + tagline */}
           <motion.div
             className="lg:flex-1"
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
+            initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.95, ease: EASE }}
             viewport={{ once: true }}
           >
             <h2
@@ -260,7 +263,7 @@ export default function AboutSection() {
             style={{ gap: 20, maxWidth: 560 }}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: EASE }}
             viewport={{ once: true }}
           >
             <p

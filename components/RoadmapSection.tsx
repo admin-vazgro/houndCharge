@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 const GOLD = "#c9ad7d";
+const EASE = [0.32, 0.72, 0, 1] as const;
 
 const phases = [
   {
@@ -71,6 +72,7 @@ export default function RoadmapSection() {
           }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: EASE }}
           viewport={{ once: true }}
         >
           THE ROADMAP
@@ -87,9 +89,9 @@ export default function RoadmapSection() {
             maxWidth:      900,
             margin:        0,
           }}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.9, ease: EASE }}
           viewport={{ once: true }}
         >
           <span style={{ color: "white" }}>From One Project To </span>
@@ -125,9 +127,9 @@ export default function RoadmapSection() {
               alignItems:    "flex-start",
               paddingBottom: i < phases.length - 1 ? "clamp(40px, 5.3vw, 80px)" : 0,
             }}
-            initial={{ opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
+            initial={{ opacity: 0, x: -16, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.65, delay: i * 0.1, ease: EASE }}
             viewport={{ once: true }}
           >
             {/* ── Node ─────────────────────────────────────────────── */}

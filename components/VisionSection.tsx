@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const GOLD = "#c9ad7d";
+const EASE = [0.32, 0.72, 0, 1] as const;
 
 // Figma stat widths: 255 / whitespace-nowrap+387 / 374
 const stats = [
@@ -98,7 +99,7 @@ export default function VisionSection() {
               }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.6, ease: EASE }}
               viewport={{ once: true }}
             >
               THE OPPORTUNITY
@@ -115,9 +116,9 @@ export default function VisionSection() {
                 letterSpacing: "-1.86px",
                 lineHeight:    "1.24",
               }}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.9, ease: EASE }}
               viewport={{ once: true }}
             >
               <p style={{ margin: 0 }}>Every EV Needs Power.</p>
@@ -136,9 +137,9 @@ export default function VisionSection() {
                 maxWidth:      882,
                 margin:        0,
               }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.18, ease: EASE }}
               viewport={{ once: true }}
             >
               India&apos;s EV adoption is accelerating faster than infrastructure can
@@ -159,9 +160,9 @@ export default function VisionSection() {
                 key={stat.value}
                 className="flex flex-col items-start"
                 style={{ maxWidth: stat.maxW }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.12 }}
+                initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: EASE }}
                 viewport={{ once: true }}
               >
                 {/* 72px Space Grotesk, gold, tracking -3.6px, lh 77px */}

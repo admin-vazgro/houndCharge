@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const GOLD = "#c9ad7d";
+const EASE = [0.32, 0.72, 0, 1] as const;
 
 // Figma frame: 1512×1018px
 // Section padding: 87px top/bottom (5.75vw), 139px left/right (9.2vw)
@@ -111,6 +112,7 @@ export default function HowItWorksSection() {
               }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, ease: EASE }}
               viewport={{ once: true }}
             >
               HOW IT WORKS
@@ -126,9 +128,9 @@ export default function HowItWorksSection() {
                 letterSpacing: "-1.24px",
                 lineHeight:    "1.2",
               }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.9, ease: EASE }}
               viewport={{ once: true }}
             >
               <p style={{ color: "white", margin: 0 }}>Infrastructure</p>
@@ -150,9 +152,9 @@ export default function HowItWorksSection() {
                 maxWidth:      774,
                 margin:        0,
               }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.18, ease: EASE }}
               viewport={{ once: true }}
             >
               The EV charging boom is real. But the infrastructure for investors
@@ -171,9 +173,9 @@ export default function HowItWorksSection() {
               height:       "clamp(240px, 38vw, 560px)",
               borderRadius: 12,
             }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1.1, delay: 0.3 }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.0, delay: 0.25, ease: EASE }}
             viewport={{ once: true }}
           >
             <video
@@ -207,9 +209,9 @@ export default function HowItWorksSection() {
               <motion.div
                 key={step.number}
                 style={{ display: "flex", gap: 13, alignItems: "flex-start" }}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
+                initial={{ opacity: 0, x: 20, filter: "blur(4px)" }}
+                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: EASE }}
                 viewport={{ once: true }}
               >
                 {/* Badge + vertical connector line

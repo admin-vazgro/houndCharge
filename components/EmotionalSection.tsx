@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 const GOLD     = "#c9ad7d";
 const GOLD_ALT = "#d5b281";
+const EASE     = [0.32, 0.72, 0, 1] as const;
 
 // Figma node 70:97 — frame 1512×712px, bg-black, relative
 //
@@ -47,9 +48,9 @@ export default function EmotionalSection() {
           gap:           14,
           zIndex:        2,
         }}
-        initial={{ opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{ duration: 0.9, ease: EASE }}
         viewport={{ once: true }}
       >
         {/* Label — Space Grotesk 400, 18px, #c9ad7d, tracking 1px, lh 32px */}
@@ -116,9 +117,9 @@ export default function EmotionalSection() {
           overflow: "hidden",
           zIndex:   1,
         }}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.1, delay: 0.15 }}
+        initial={{ opacity: 0, scale: 1.03 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, delay: 0.12, ease: EASE }}
         viewport={{ once: true }}
       >
         {/* Gradient fades black into the image top — smooth transition on all sizes */}
