@@ -8,7 +8,7 @@ const EASE = [0.32, 0.72, 0, 1] as const;
 
 // Figma stat widths: 255 / whitespace-nowrap+387 / 374
 const stats = [
-  { value: "5 Cr",     desc: "EVs on Indian roads by 2030",                    maxW: 255 },
+  { value: "6 - 8 Cr", desc: "EVs on Indian roads by 2030",                    maxW: 320 },
   { value: "₹1.5L Cr", desc: "Charging infrastructure investment needed",       maxW: 387 },
   { value: "0",        desc: "Structured investors participation models today", maxW: 374 },
 ];

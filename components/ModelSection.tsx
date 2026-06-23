@@ -14,12 +14,12 @@ const problems = [
   {
     number: "02",
     title:  "High Entry Barrier",
-    desc:   "Building even a high power single station demands 50 lakhs in upfront capital and operational responsibility. This prices out most serious investors.",
+    desc:   "Building even a high power single station demands 35 lakhs in upfront capital and operational responsibility. This prices out most serious investors.",
   },
   {
     number: "03",
-    title:  "Zero Transparency",
-    desc:   "Investors receive only basic minimal dashboard into utilisation, ROI, or on-ground performance. It's a black box from day one.",
+    title:  "Limited Access",
+    desc:   "Investors have access to only basic dashboard data with limited visibility into revenue, utilization and overall station performance.",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function ModelSection() {
           viewport={{ once: true }}
         >
           <span style={{ color: "white" }}>Charging Infrastructure Exists. </span>
-          <span style={{ color: "#dbb781" }}>Flexible and Proper.</span>
+          <span style={{ color: "#dbb781" }}>Investment Infrastructure Doesn&apos;t</span>
         </motion.p>
 
         <motion.p

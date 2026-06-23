@@ -9,7 +9,7 @@ const easeStr = `cubic-bezier(0.32,0.72,0,1)`;
 
 const rows = [
   { label: "OWNERSHIP",       franchise: "Operator only",              company: "Company only",       hound: "You — fractional" },
-  { label: "ENTRY COST",      franchise: "20 lakhs",                   company: "35 lakhs",           hound: "₹5L minimum" },
+  { label: "ENTRY COST",      franchise: "35 lakhs",                   company: "45 lakhs",           hound: "₹5L minimum" },
   { label: "EXIT PATH",       franchise: "None structured",            company: "None",               hound: "Marketplace liquidity" },
   { label: "TRANSPARENCY",    franchise: "Minimal dashboard",          company: "Minimal dashboard",  hound: "Dedicated investor mobile application" },
   { label: "DIVERSIFICATION", franchise: "Single location",            company: "Single location",    hound: "Multi hub, multi project" },

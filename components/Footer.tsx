@@ -87,7 +87,7 @@ export default function Footer() {
               Phone
             </p>
             <a
-              href="tel:+919249548354"
+              href="tel:+919072550611"
               style={{
                 fontFamily:    "var(--font-manrope), sans-serif",
                 fontSize:      14,
@@ -101,7 +101,7 @@ export default function Footer() {
               }}
               className="hover:text-white/80"
             >
-              +91 92495 48354
+              +91 90725 50611
             </a>
           </div>
 

@@ -7,10 +7,10 @@ const EASE = [0.32, 0.72, 0, 1] as const;
 
 const traditionalItems = [
   "Single charging station",
-  "One owner, full burden",
+  "No risk diversification",
   "No structured exit",
   "Single-location exposure",
-  "Zero investor transparency",
+  "Limited investor transparency",
 ];
 
 const houndItems = [

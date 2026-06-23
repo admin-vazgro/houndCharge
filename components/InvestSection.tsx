@@ -7,12 +7,12 @@ const GOLD = "#c9ad7d";
 const EASE = [0.32, 0.72, 0, 1] as const;
 
 const stats = [
-  { value: 10,  suffix: "",   label: "STRATEGIC LOCATIONS", labelColor: "#c3c3c3" },
-  { value: 75,  suffix: "",   label: "FAST CHARGERS",       labelColor: "#e0e0e0" },
-  { value: 180, suffix: "KW", label: "MIN CAPACITY",        labelColor: "#e0e0e0" },
-  { value: 750, suffix: "KW", label: "IN A SINGLE HUB",     labelColor: "#e0e0e0" },
-  { value: 2,   suffix: "",   label: "MEGA HUBS",           labelColor: "#e0e0e0" },
-  { value: 8,   suffix: "",   label: "MINI HUBS",           labelColor: "#e0e0e0" },
+  { value: 12,  suffix: "",           label: "STRATEGIC LOCATIONS", labelColor: "#c3c3c3" },
+  { value: 80,  suffix: "",           label: "FAST CHARGERS",       labelColor: "#e0e0e0" },
+  { value: 120, suffix: "KW",         label: "MIN CAPACITY",        labelColor: "#e0e0e0" },
+  { value: 750, suffix: "KW – 2 MW",  label: "IN A SINGLE HUB",     labelColor: "#e0e0e0" },
+  { value: 2,   suffix: "",           label: "MEGA HUBS",           labelColor: "#e0e0e0" },
+  { value: 10,  suffix: "",           label: "MINI HUBS",           labelColor: "#e0e0e0" },
 ];
 
 function AnimatedCounter({ value, suffix, inView, delay }: {

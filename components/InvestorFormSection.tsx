@@ -196,21 +196,26 @@ export default function InvestorFormSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading,   setLoading]   = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name || !mobile || !email) return;
     setLoading(true);
-    const body = encodeURIComponent(
-      `Name: ${name}\nMobile: ${mobile}\nEmail: ${email}\nProject: ${project}\nTokens: ${tokens} (₹${tokens * 5} Lakhs)\nRemarks: ${remarks}`
-    );
-    setTimeout(() => {
-      window.open(
-        `mailto:invest@houndcharge.com?subject=Investor%20Enquiry%20—%20${encodeURIComponent(project)}&body=${body}`,
-        "_blank"
-      );
-      setSubmitted(true);
+    try {
+      const res = await fetch("/api/invest", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ name, mobile, email, project, tokens, remarks }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch {
+      alert("Something went wrong. Please try again.");
+    } finally {
       setLoading(false);
-    }, 800);
+    }
   }
 
   return (
@@ -342,7 +347,7 @@ export default function InvestorFormSection() {
                   margin:        0,
                 }}
               >
-                Your email client should have opened. We&apos;ll be in touch within 24 hours with the full investor brief.
+                We&apos;ve received your enquiry. Our team will reach out within 24 hours with the full investor brief.
               </p>
             </motion.div>
           ) : (

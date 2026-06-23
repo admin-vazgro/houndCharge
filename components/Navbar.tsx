@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "VISION",    href: "#vision" },
-  { label: "MODEL",     href: "#model" },
-  { label: "PROJECTS",  href: "#projects" },
-  { label: "INVEST",    href: "#invest" },
-  { label: "ROADMAPS",  href: "#roadmap" },
+  { label: "VISION",    href: "/#vision" },
+  { label: "MODEL",     href: "/#model" },
+  { label: "PROJECTS",  href: "/#projects" },
+  { label: "INVEST",    href: "/#invest" },
+  { label: "ROADMAPS",  href: "/#roadmap" },
 ];
 
 export default function Navbar() {
@@ -39,15 +39,17 @@ export default function Navbar() {
       >
         <nav className="flex items-center justify-between px-6 md:px-14 h-[68px]">
           {/* Logo */}
-          <Image
-            src="/logo.png"
-            alt="Hound Charge"
-            width={72}
-            height={32}
-            className="object-contain"
-            style={{ mixBlendMode: "screen" }}
-            priority
-          />
+          <a href="/">
+            <Image
+              src="/logo.png"
+              alt="Hound Charge"
+              width={72}
+              height={32}
+              className="object-contain"
+              style={{ mixBlendMode: "screen" }}
+              priority
+            />
+          </a>
 
           {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-10">

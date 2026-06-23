@@ -18,7 +18,7 @@ interface Project {
 }
 
 const PROJECTS: Project[] = [
-  { id: 1,  name: "Hound Ares",        shortName: "Ares",        category: "Flagship",                    coverage: "Ernakulam Border Region",              status: "active", locations: 9,  chargers: 36, motive: "Flagship charging corridor at the Ernakulam border ensuring seamless intercity EV mobility and high charger availability.",  group: "flagship"   },
+  { id: 1,  name: "Hound Ares",        shortName: "Ares",        category: "Flagship",                    coverage: "Ernakulam Border Region",              status: "active", locations: 12, chargers: 80, motive: "Flagship charging corridor at the Ernakulam border ensuring seamless intercity EV mobility and high charger availability.",  group: "flagship"   },
   { id: 2,  name: "Hound Hermes",      shortName: "Hermes",      category: "Tourist – Phase 1",           coverage: "Thiruvananthapuram to Ernakulam",       status: "soon",   locations: 9,  chargers: 36, motive: "EV charging hubs across major tourist destinations in South Kerala.",                                                      group: "tourist"    },
   { id: 3,  name: "Hound Hades",       shortName: "Hades",       category: "Tourist – Phase 2",           coverage: "Thrissur to Kasaragod",                 status: "soon",   locations: 9,  chargers: 36, motive: "Tourism-focused EV infrastructure spanning North Kerala.",                                                                 group: "tourist"    },
   { id: 4,  name: "Hound Aphrodite",   shortName: "Aphrodite",   category: "Hill Stations",               coverage: "Munnar, Wayanad, Vagamon & More",       status: "soon",   locations: 9,  chargers: 36, motive: "Reliable EV charging at Kerala's most scenic and remote hill destinations.",                                             group: "tourist"    },
@@ -146,15 +146,14 @@ function MarqueePill({ p }: { p: Project }) {
 }
 
 export default function ProjectsSection() {
-  const totals = { projects: 30, locations: 261, chargers: 1044 };
+  const totals = { projects: "100+", locations: "1000+", chargers: "5000+" };
 
   return (
     <section
       id="projects"
       className="bg-black overflow-hidden"
       style={{
-        paddingTop:    "clamp(64px, 9.25vw, 140px)",
-        paddingBottom: "clamp(64px, 9.25vw, 140px)",
+        paddingTop: "clamp(64px, 9.25vw, 140px)",
       }}
     >
       {/* ── Header ────────────────────────────────────────────────────── */}
@@ -196,7 +195,7 @@ export default function ProjectsSection() {
                 margin:        0,
               }}
             >
-              <span style={{ color: "white" }}>30 Projects. </span>
+              <span style={{ color: "white" }}>100+ Projects. </span>
               <span style={{ color: GOLD }}>One Mission.</span>
             </h2>
           </motion.div>
@@ -364,7 +363,7 @@ export default function ProjectsSection() {
               margin:        "0 0 24px 0",
             }}
           >
-            The Pipeline — 29 Projects Coming
+            The Pipeline — 40 Projects Coming
           </p>
 
           <div
@@ -495,7 +494,69 @@ export default function ProjectsSection() {
             </div>
           </div>
         </div>
+
       </motion.div>
+
+      {/* View All Projects CTA */}
+      <div
+        style={{
+          paddingLeft:   "clamp(24px, 9.2vw, 139px)",
+          paddingRight:  "clamp(24px, 9.2vw, 139px)",
+          paddingTop:    "clamp(32px, 4vw, 48px)",
+          paddingBottom: "clamp(64px, 9.25vw, 140px)",
+          display:       "flex",
+          justifyContent:"center",
+        }}
+      >
+        <a
+          href="/projects"
+          className="inline-flex items-center gap-2.5 group active:scale-[0.97]"
+          style={{
+            border:         "1px solid rgba(201,173,125,0.35)",
+            color:          GOLD,
+            fontFamily:     "var(--font-space-grotesk), sans-serif",
+            fontSize:       11,
+            fontWeight:     700,
+            letterSpacing:  "0.12em",
+            padding:        "0 6px 0 20px",
+            height:         44,
+            borderRadius:   9999,
+            textDecoration: "none",
+            background:     "rgba(201,173,125,0.05)",
+            display:        "inline-flex",
+            alignItems:     "center",
+            transition:     "border-color 350ms cubic-bezier(0.32,0.72,0,1), background 350ms cubic-bezier(0.32,0.72,0,1)",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = "rgba(201,173,125,0.65)";
+            e.currentTarget.style.background  = "rgba(201,173,125,0.1)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = "rgba(201,173,125,0.35)";
+            e.currentTarget.style.background  = "rgba(201,173,125,0.05)";
+          }}
+        >
+          VIEW ALL PROJECTS
+          <span
+            className="group-hover:translate-x-[1px] group-hover:-translate-y-[1px]"
+            style={{
+              display:        "flex",
+              alignItems:     "center",
+              justifyContent: "center",
+              width:          32,
+              height:         32,
+              borderRadius:   "50%",
+              background:     "rgba(201,173,125,0.12)",
+              flexShrink:     0,
+              transition:     "transform 350ms cubic-bezier(0.32,0.72,0,1)",
+            }}
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+              <path d="M7 17L17 7M17 7H7M17 7V17" stroke={GOLD} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+        </a>
+      </div>
     </section>
   );
 }
